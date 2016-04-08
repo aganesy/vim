@@ -1,0 +1,11 @@
+--- pattern.txt
++++ pattern.txt
+@@ -838,7 +838,7 @@
+ 	branch is used.
+ 	Example: "end\ze\(if\|for\)" matches the "end" in "endif" and
+ 	"endfor".
+-	This cannot be followed by a multi. *E888*
++	This cannot be followed by a multi.
+ 	{not in Vi} {not available when compiled without the |+syntax| feature}
+ 
+ 						*/\%^* *start-of-file*

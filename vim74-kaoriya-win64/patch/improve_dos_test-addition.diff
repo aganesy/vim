@@ -1,0 +1,32 @@
+diff --git a/src/testdir/Make_dos.mak b/src/testdir/Make_dos.mak
+--- a/src/testdir/Make_dos.mak
++++ b/src/testdir/Make_dos.mak
+@@ -70,24 +70,19 @@ win32:	nolog $(SCRIPTS16) $(SCRIPTS) $(S
+ 	IF EXIST $@ DEL $@
+ 	$(VIMPROG) -u dos.vim --noplugin "+set ff=dos|f $@|wq" $(*B).in
+ 
+-$(DOSTMP_OUTFILES): $*.in
++$(TEST_OUTFILES): $(DOSTMP)\$(*B).in
+ 	-@IF EXIST test.out DEL test.out
+ 	MOVE $(*B).in $(*B).in.bak
+-	COPY $*.in $(*B).in
++	COPY $(DOSTMP)\$(*B).in $(*B).in
+ 	COPY $(*B).ok test.ok
+ 	$(VIMPROG) -u dos.vim -U NONE --noplugin -s dotest.in $(*B).in
+-	-@IF EXIST test.out MOVE /y test.out $@
+-	-@IF EXIST $(*B).in.bak \
+-		( DEL $(*B).in & MOVE $(*B).in.bak $(*B).in )
+-	-@IF EXIST test.in DEL test.in
++	-@IF EXIST test.out MOVE /y test.out $(DOSTMP)\$(*B).out
++	-@IF EXIST $(*B).in.bak MOVE /y $(*B).in.bak $(*B).in
+ 	-@IF EXIST X* DEL X*
+ 	-@IF EXIST test.ok DEL test.ok
+ 	-@IF EXIST Xdir1 RD /s /q Xdir1
+ 	-@IF EXIST Xfind RD /s /q Xfind
+ 	-@IF EXIST viminfo DEL viminfo
+-
+-$(TEST_OUTFILES): $(DOSTMP)\$(*B).out
+-	IF EXIST test.out DEL test.out
+ 	$(VIMPROG) -u dos.vim --noplugin "+set ff=unix|f test.out|wq" \
+ 		$(DOSTMP)\$(*B).out
+ 	@diff test.out $*.ok & IF ERRORLEVEL 1 \

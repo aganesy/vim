@@ -1,0 +1,167 @@
+"デフォルトの文字コード
+set encoding=utf-8
+set fileencoding=cp932
+"文字コードの自動認識
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8,latin1
+
+scriptencoding cp932
+
+"ファイルフォーマット
+set fileformats=dos,mac,unix
+
+"---------------OS依存---------------"
+"ランタイムパス
+"環境変数を設定してください
+set runtimepath+=~/.
+set runtimepath+=$HOME
+set runtimepath+=$HOME/../settings
+
+"------------------------------------"
+
+"カラースキーマ
+"set background=dark
+"colorscheme solarized
+colorscheme hybrid
+
+"タイトルバーを非表示
+"set notitle
+
+"メニューバーを非表示
+set guioptions-=m
+
+"ツールバーを非表示
+set guioptions-=T
+
+"左右スクロールバーを非表示
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+
+"水平スクロールバーを非表示
+set guioptions-=b
+
+" ハイライトを有効にする
+if &t_Co > 2 || has('gui_running')
+  syntax on
+endif
+
+"mql4 にシンタックスハイライトを適用する
+"filetype を cpp にするだけなんですけどね
+au BufNewFile,BufRead *.mq4 set filetype=cpp
+au BufNewFile,BufRead *.mq4 set cindent
+au BufNewFile,BufRead *.mqh set filetype=cpp
+au BufNewFile,BufRead *.mqh set cindent
+
+"viminfo の保存先
+set viminfo='50,\"1000,:0,n$HOME/../_temp/viminfo/_viminfo
+
+"UNDOファイルを作成しません
+" set noundofile
+" UNDOファイルの保存先
+set undodir=$HOME/../_temp/undo
+
+"バックアップしません
+" set nobackup
+" バックアプファイルの保存先
+set backupdir=$HOME/../_temp/backup
+
+"スワップファイルを作成しません
+" set noswapfile
+" swapファイルの保存先
+set directory=$HOME/../_temp/swap
+
+"タブサイズは4です
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+"オートインデント
+set autoindent
+"高度なインデント
+set smartindent
+
+"行番号表示
+set number
+"行末と行頭をつなげる
+set whichwrap=b,s,h,l,<,>,[,]
+
+"横スクロールした時にスクロールする値
+set sidescroll=1
+set sidescrolloff=4
+
+"マウス操作が捗るらしい
+set mouse=a
+
+"スクリーン対応
+if &term == "screen"
+	set ttymouse=xterm2
+endif
+
+"デフォルトのウィンドウサイズ
+set lines=40
+set columns=150
+
+"ウィンドウの表示位置（左上の座標）
+:winpos 20 25
+
+"デフォルトの画面分割（下に分割）
+set splitbelow
+
+"クリップボードをWindowsと連携
+set clipboard=unnamed
+
+"閉じ括弧が入力されたとき、対応する括弧を表示する
+set showmatch
+
+"検索時に大文字を含んでいたら大/小を区別
+set ignorecase 
+set smartcase
+"検索をファイルの先頭へループしない
+set nowrapscan
+"検索結果をハイライトする
+set hlsearch
+
+"自動改行しない
+set nowrap
+
+"バックスペースが使えるよ
+set backspace=start,eol,indent
+
+" 行を強調表示
+set cursorline
+"highlight CursorLine term=reverse
+"highlight CursorLine cterm=underline
+"highlight CursorLine ctermbg=8
+"highlight CursorLine ctermfg=NONE
+
+
+" 列を強調表示
+set cursorcolumn
+"highlight CursorColumn ctermbg=gray
+"highlight CursorColumn ctermfg=white
+
+"不可視文字を表示
+set list
+set listchars=tab:>-,nbsp:･,trail:･,eol:｣,extends:>,precedes:<
+highlight SpecialKey term=underline ctermfg=darkgray guifg=darkgray
+highlight NonText term=underline ctermfg=darkgray guifg=darkgray
+"全角スペースを視覚化
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+au BufNewFile,BufRead * match ZenkakuSpace /　/
+
+"入力モード時、ステータスラインのカラーを変更
+augroup InsertHook
+autocmd!
+autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
+autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
+
+"grep 実行時、自動で Quickfix を表示します
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep if len(getqflist()) != 0 | copen | endif
+
+"grep 実行時、指定した拡張子をファイル検索から除外します
+autocmd QuickFixCmdPre * setlocal wildignore=*.exe,*.app,*.ocx,*.jpg,*.png,*.bmp,*.gif,*.class,*.jar,*.apk,*.lib,*.dll,*.obj,*.bin,*.pdb,*.exp,*.lik,*.dat,*.avi,*.mp4,*.wmv,*.zip,*.cab
+autocmd QuickFixCmdPost * setlocal wildignore=
+
+"外部 grep を利用します（cygwin）
+set grepprg=c:/cygwin/bin/grep\ -nH\ -r 
+
