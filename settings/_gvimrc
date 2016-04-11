@@ -54,22 +54,22 @@ au BufNewFile,BufRead *.mqh set filetype=cpp
 au BufNewFile,BufRead *.mqh set cindent
 
 "viminfo の保存先
-set viminfo='50,\"1000,:0,n$HOME/../_temp/viminfo/_viminfo
+set viminfo='50,\"1000,:0,n~/../_temp/viminfo/_viminfo
 
 "UNDOファイルを作成しません
 " set noundofile
 " UNDOファイルの保存先
-set undodir=$HOME/../_temp/undo
+set undodir=~/../_temp/undo
 
 "バックアップしません
 " set nobackup
 " バックアプファイルの保存先
-set backupdir=$HOME/../_temp/backup
+set backupdir=~/../_temp/backup
 
 "スワップファイルを作成しません
 " set noswapfile
 " swapファイルの保存先
-set directory=$HOME/../_temp/swap
+set directory=~/../_temp/swap
 
 "タブサイズは4です
 set tabstop=4

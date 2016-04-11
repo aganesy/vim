@@ -31,18 +31,22 @@ au BufNewFile,BufRead *.mqh set filetype=cpp
 au BufNewFile,BufRead *.mqh set cindent
 
 "viminfo の保存先
-set viminfo='50,\"1000,:0,n$HOME/../_temp/viminfo/_viminfo
+set viminfo='50,\"1000,:0,n~/../_temp/viminfo/_viminfo
+
 "UNDOファイルを作成しません
 " set noundofile
-set undodir=$HOME/../_temp/undo
+" UNDOファイルの保存先
+set undodir=~/../_temp/undo
+
 "バックアップしません
 " set nobackup
 " バックアプファイルの保存先
-set backupdir=$HOME/../_temp/backup
+set backupdir=~/../_temp/backup
+
 "スワップファイルを作成しません
 " set noswapfile
 " swapファイルの保存先
-set directory=$HOME/../_temp/swap
+set directory=~/../_temp/swap
 
 "タブサイズは4です
 set tabstop=4
@@ -150,13 +154,13 @@ set grepprg=c:/cygwin/bin/grep\ -nH\ -r
 " vim起動時のみruntimepathにneobundle.vimを追加
 if has('vim_starting')
   set nocompatible
-  set runtimepath+=~/.vim/bundle/neobundle.vim
+  " set runtimepath+=~/.vim/bundle/neobundle.vim
+  set runtimepath+=~/../bundle/neobundle.vim
 endif
 
 " neobundle.vimの初期化
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
+" call neobundle#begin(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/../bundle/'))
 
 " NeoBundleを更新するための設定
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -171,6 +175,8 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'tpope/vim-fugitive'
+
+call neobundle#end()
 
 " 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
 filetype plugin indent on
