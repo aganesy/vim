@@ -1,6 +1,7 @@
 
 var wsh = new ActiveXObject("WScript.Shell");
 
+wsh.run("mkdir_temp.bat",0, true);
 wsh.run("mklink_settings.bat",0, true);
 wsh.run("git_cloning.bat",0, true);
 

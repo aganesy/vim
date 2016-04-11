@@ -2,6 +2,7 @@
 
 cd /d %~dp0
 
+START "" "mkdir_temp.bat"
 START "" "mklink_settings.bat"
 START "" "git_cloning.bat"
 
