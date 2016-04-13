@@ -1,0 +1,17 @@
+[レジストリパス]
+
+HKEY_CLASSES_ROOT
++-*
+  +-shell
+    +-Vimで編集
+      +-command
+
+---
+
+[キー]
+種類	: REG_SZ
+データ	: "C:\Windows\SysWow64\wscript.exe" "C:\Tools\vim\vim_run.js" "gvim" "%1"
+
+
+
+

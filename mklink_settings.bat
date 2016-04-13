@@ -1,5 +1,7 @@
 @echo off
 
+cd /d %~dp0
+
 set currentDir=%CD%
 set settingDir=%currentDir%\settings
 set makeLink32Dir=%currentDir%\vim74-kaoriya-win32
