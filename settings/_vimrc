@@ -18,19 +18,8 @@ set runtimepath+=$HOME/../settings
 
 "------------------------------------"
 
-" ハイライトを有効にする
-if &t_Co > 2 || has('gui_running')
-  syntax on
-endif
-
-"mql4 にシンタックスハイライトを適用する
-"filetype を cpp にするだけなんですけどね
-au BufNewFile,BufRead *.mq4 set filetype=cpp
-au BufNewFile,BufRead *.mq4 set cindent
-au BufNewFile,BufRead *.mqh set filetype=cpp
-au BufNewFile,BufRead *.mqh set cindent
-
 "viminfo の保存先
+"vim と Gvim の info は分けておくべき？
 set viminfo='50,\"1000,:0,n~/../_temp/viminfo/_viminfo
 
 "UNDOファイルを作成しません
@@ -56,6 +45,12 @@ set softtabstop=4
 set autoindent
 "高度なインデント
 set smartindent
+
+" ハイライトを有効にする
+if &t_Co > 2 || has('gui_running')
+  syntax on
+endif
+ set cindent
 
 "行番号表示
 set number
@@ -105,7 +100,7 @@ set clipboard=unnamed
 set showmatch
 
 "検索時に大文字を含んでいたら大/小を区別
-set ignorecase 
+set ignorecase
 set smartcase
 "検索をファイルの先頭へループしない
 set nowrapscan
@@ -115,9 +110,6 @@ set hlsearch
 "自動改行しない
 set nowrap
 autocmd FileType text setlocal textwidth=0
-
-"80文字目に縦線
-set colorcolumn=80
 
 "バックスペースが使えるよ
 set backspace=start,eol,indent
@@ -206,4 +198,3 @@ let g:quickrun_config={
  vmap <C-K> <Plug>(caw:i:toggle)
 
 "<<< プラグイン系の設定 <<<
-
