@@ -194,7 +194,7 @@ let g:quickrun_config={
 \}
 
 "コメントアウトのキーマッピング
- nmap <C-K> <Plug>(caw:i:toggle)
- vmap <C-K> <Plug>(caw:i:toggle)
+ nmap <C-K> <Plug>(caw:hatpos:toggle)
+ vmap <C-K> <Plug>(caw:hatpos:toggle)
 
 "<<< プラグイン系の設定 <<<
