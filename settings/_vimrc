@@ -13,29 +13,31 @@ set fileformats=dos,mac,unix
 "ランタイムパス
 "環境変数を設定してください
 set runtimepath+=~/.
-set runtimepath+=$HOME
-set runtimepath+=$HOME/../settings
+" set runtimepath+=$HOME
+" set runtimepath+=$HOME/../settings
+set runtimepath+=$VIM
+set runtimepath+=$VIM/../settings
 
 "------------------------------------"
 
 "viminfo の保存先
 "vim と Gvim の info は分けておくべき？
-set viminfo='50,\"1000,:0,n~/../_temp/viminfo/_viminfo
+set viminfo='50,\"1000,:0,n$VIM/../_temp/viminfo/_viminfo
 
 "UNDOファイルを作成しません
 " set noundofile
 " UNDOファイルの保存先
-set undodir=~/../_temp/undo
+set undodir=$VIM/../_temp/undo
 
 "バックアップしません
 " set nobackup
 " バックアプファイルの保存先
-set backupdir=~/../_temp/backup
+set backupdir=$VIM/../_temp/backup
 
 "スワップファイルを作成しません
 " set noswapfile
 " swapファイルの保存先
-set directory=~/../_temp/swap
+set directory=$VIM/../_temp/swap
 
 "タブサイズは4です
 set tabstop=4
@@ -146,13 +148,13 @@ set grepprg=c:/cygwin/bin/grep\ -nH\ -r
 " vim起動時のみruntimepathにneobundle.vimを追加
 if has('vim_starting')
   set nocompatible
-  " set runtimepath+=~/.vim/bundle/neobundle.vim
-  set runtimepath+=~/../bundle/neobundle.vim
+  " set runtimepath+=$VIM/.vim/bundle/neobundle.vim
+  set runtimepath+=$VIM/../bundle/neobundle.vim
 endif
 
 " neobundle.vimの初期化
-" call neobundle#begin(expand('~/.vim/bundle/'))
-call neobundle#begin(expand('~/../bundle/'))
+" call neobundle#begin(expand('$VIM/.vim/bundle/'))
+call neobundle#begin(expand('$VIM/../bundle/'))
 
 " NeoBundleを更新するための設定
 NeoBundleFetch 'Shougo/neobundle.vim'

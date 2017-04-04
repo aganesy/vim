@@ -2,6 +2,7 @@
 
 cd /d %~dp0
 
+set homeDir=%HOMEDRIVE%%HOMEPATH%
 set currentDir=%CD%
 set settingDir=%currentDir%\settings
 set makeLink32Dir=%currentDir%\vim74-kaoriya-win32
@@ -27,6 +28,13 @@ mklink %makeLink64Dir%\%underVIMRC% %settingDir%\%underVIMRC%
 mklink %makeLink64Dir%\%GVIMRC% %settingDir%\%GVIMRC%
 mklink %makeLink64Dir%\%dotGVIMRC% %settingDir%\%dotGVIMRC%
 mklink %makeLink64Dir%\%underGVIMRC% %settingDir%\%underGVIMRC%
+
+mklink %homeDir%\%VIMRC% %settingDir%\%VIMRC%
+mklink %homeDir%\%dotVIMRC% %settingDir%\%dotVIMRC%
+mklink %homeDir%\%underVIMRC% %settingDir%\%underVIMRC%
+mklink %homeDir%\%GVIMRC% %settingDir%\%GVIMRC%
+mklink %homeDir%\%dotGVIMRC% %settingDir%\%dotGVIMRC%
+mklink %homeDir%\%underGVIMRC% %settingDir%\%underGVIMRC%
 
 exit
 

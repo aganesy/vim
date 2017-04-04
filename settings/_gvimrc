@@ -13,14 +13,16 @@ set fileformats=dos,mac,unix
 "ランタイムパス
 "環境変数を設定してください
 set runtimepath+=~/.
-set runtimepath+=$HOME
-set runtimepath+=$HOME/../settings
+" set runtimepath+=$HOME
+" set runtimepath+=$HOME/../settings
+set runtimepath+=$VIM
+set runtimepath+=$VIM/../settings
 
 "------------------------------------"
 
 "viminfo の保存先
 "vim と Gvim の info は分けておくべき？
-set viminfo='50,\"1000,:0,n~/../_temp/viminfo/_viminfo
+set viminfo='50,\"1000,:0,n$VIM/../_temp/viminfo/_viminfo
 
 "タイトルバーを非表示
 "set notitle
