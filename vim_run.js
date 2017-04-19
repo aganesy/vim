@@ -2,12 +2,8 @@
 var wsh = new ActiveXObject("WScript.Shell");
 
 var env = wsh.Environment('SYSTEM');
-var vimPath = env.item('HOME');
-var strMicroprocessor = env.item('PROCESSOR_ARCHITECTURE');
 
-vimPath = vimPath.replace(/vim74-kaoriya-win64/g, "");
-vimPath = vimPath.replace(/vim74-kaoriya-win32/g, "");
-
+var vimPath = wsh.CurrentDirectory + "\\";
 wsh.run(vimPath + "mkdir_temp.bat",0, true);
 wsh.run(vimPath + "mklink_settings.bat",0, true);
 wsh.run(vimPath + "git_cloning.bat",0, true);
@@ -17,6 +13,7 @@ var objParam = WScript.Arguments;
 var strErrorMessage = "";
 var strVimExecCommand = vimPath;
 
+var strMicroprocessor = env.item('PROCESSOR_ARCHITECTURE');
 if (strMicroprocessor == "x86"){
 	// 32bit Vim;
 	if (objParam.length == 0){
