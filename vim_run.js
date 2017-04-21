@@ -3,7 +3,10 @@ var wsh = new ActiveXObject("WScript.Shell");
 
 var env = wsh.Environment('SYSTEM');
 
-var vimPath = wsh.CurrentDirectory + "\\";
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+var vimPath = fso.getParentFolderName(WScript.ScriptFullName) + "\\";
+// var vimPath = wsh.CurrentDirectory + "\\";
+// wsh.Popup(vimPath, 0, "vimPath", 1);
 wsh.run(vimPath + "mkdir_temp.bat",0, true);
 wsh.run(vimPath + "mklink_settings.bat",0, true);
 wsh.run(vimPath + "git_cloning.bat",0, true);
