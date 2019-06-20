@@ -169,6 +169,10 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vim-scripts/vim-auto-save'
+NeoBundle 'kannokanno/previm'
+" NeoBundle 'syui/cscroll.vim'
+NeoBundle 'kana/vim-submode'
 
 call neobundle#end()
 
@@ -199,4 +203,29 @@ let g:quickrun_config={
  nmap <C-K> <Plug>(caw:hatpos:toggle)
  vmap <C-K> <Plug>(caw:hatpos:toggle)
 
+"-------------------------------------------------------------------
+"Markdown Preview
+"下記URLからコピペ
+"http://mbahack.syui.cf/2013/11/vimmarkdown.html
+"-------------------------------------------------------------------
+" Markdown プレビュー {{{
+nnoremap <silent> <F7> :PrevimOpen<CR>
+"nnoremap <silent> <F7> :PrevimOpen \|:Silent open -a it2_f &<CR>
+nmap <silent> <Leader>j <Plug>(ChromeScrollDown)
+nmap <silent> <Leader>k <Plug>(ChromeScrollUp)
+nmap <silent> <Leader>q <Plug>(ChromeTabClose)
+nmap <buffer> <Leader>f <Plug>(ChromeKey)
+
+call submode#enter_with('cscroll', 'n', '', '<Leader>j', ':ChromeScrollDown<CR>')
+call submode#enter_with('cscroll', 'n', '', '<Leader>k', ':ChromeScrollUp<CR>')
+call submode#leave_with('cscroll', 'n', '', 'n')
+call submode#map('cscroll', 'n', '', 'j', ':ChromeScrollDown<CR>')
+call submode#map('cscroll', 'n', '', 'k', ':ChromeScrollUp<CR>')
+
+"" Auto Scroll
+"nmap <silent> <Leader>j <Plug>(ChromeAutoScrollDown)
+"nmap <Leader>js <Plug>(ChromeAutoScrollDownStop)
+"nmap <silent> <Leader>k <Plug>(ChromeAutoScrollUp)
+"nmap <Leader>ks <Plug>(ChromeAutoScrollUpStop)
+" }}}
 "<<< プラグイン系の設定 <<<
