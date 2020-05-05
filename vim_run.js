@@ -10,6 +10,7 @@ var vimPath = fso.getParentFolderName(WScript.ScriptFullName) + "\\";
 wsh.run(vimPath + "mkdir_temp.bat",0, true);
 wsh.run(vimPath + "mklink_settings.bat",0, true);
 wsh.run(vimPath + "git_cloning.bat",0, true);
+wsh.run(vimPath + "vim_right_command_regist.bat",0, true);
 
 var objParam = WScript.Arguments;
 

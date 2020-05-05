@@ -140,6 +140,9 @@ autocmd QuickFixCmdPost * setlocal wildignore=
 
 "外部 grep を利用します（cygwin）
 set grepprg=c:/cygwin/bin/grep\ -rniH\ --exclude='*.bmp'\ --exclude='*.exe'\ --exclude='*.dll'\ --exclude='*.lib'\ --exclude='*.obj'\ --exclude='*.bin'\ --exclude='*.pdb'\ --exclude='*.map'\ --exclude='*.cod'\ --exclude='*.tlh'
+"
+" Vimのインクリメントでアルファベットをインクリメントできるようにする
+set nf=alpha
 
 ">>> プラグイン系の設定 >>>
 "-------------------------------------------------------------------

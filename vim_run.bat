@@ -5,6 +5,7 @@ cd /d %~dp0
 START "" "mkdir_temp.bat"
 START "" "mklink_settings.bat"
 START "" "git_cloning.bat"
+START "" "vim_right_command_regist.bat"
 
 if "%PROCESSOR_ARCHITECTURE%" == "x86" (
 	if "%PROCESSOR_ARCHITEW6432%" == "AMD64" (
