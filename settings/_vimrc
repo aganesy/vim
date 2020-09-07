@@ -18,6 +18,10 @@ set runtimepath+=~/.
 set runtimepath+=$VIM
 set runtimepath+=$VIM/../settings
 
+"------------テンプレート------------"
+autocmd BufNewFile *.go 0r $VIM/../settings/template/go.txt
+
+
 "------------------------------------"
 
 "viminfo の保存先
