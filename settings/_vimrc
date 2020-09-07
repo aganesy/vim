@@ -139,14 +139,11 @@ autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep if len(getqflist()) != 0 | copen | endif
 
 "grep 実行時、指定した拡張子をファイル検索から除外します
-autocmd QuickFixCmdPre * setlocal wildignore=*.exe,*.app,*.ocx,*.jpg,*.png,*.bmp,*.gif,*.class,*.jar,*.apk,*.lib,*.dll,*.obj,*.bin,*.pdb,*.map,*.exp,*.lik,*.dat,*.avi,*.mp4,*.wmv,*.zip,*.cab
+autocmd QuickFixCmdPre * setlocal wildignore=*.exe,*.app,*.ocx,*.jpg,*.png,*.bmp,*.gif,*.class,*.jar,*.apk,*.lib,*.dll,*.obj,*.bin,*.pdb,*.exp,*.lik,*.dat,*.avi,*.mp4,*.wmv,*.zip,*.cab,*.doc,*.docx,*.xlsx,*.xls,*.xlsm,*.ppt,*.pptx
 autocmd QuickFixCmdPost * setlocal wildignore=
 
 "外部 grep を利用します（cygwin）
-set grepprg=c:/cygwin/bin/grep\ -rniH\ --exclude='*.bmp'\ --exclude='*.exe'\ --exclude='*.dll'\ --exclude='*.lib'\ --exclude='*.obj'\ --exclude='*.bin'\ --exclude='*.pdb'\ --exclude='*.map'\ --exclude='*.cod'\ --exclude='*.tlh'
-"
-" Vimのインクリメントでアルファベットをインクリメントできるようにする
-set nf=alpha
+set grepprg=c:/cygwin/bin/grep\ -nH\ -r 
 
 ">>> プラグイン系の設定 >>>
 "-------------------------------------------------------------------
