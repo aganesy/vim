@@ -1,29 +1,3 @@
-"デフォルトの文字コード
-set encoding=utf-8
-set fileencoding=cp932
-"文字コードの自動認識
-set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8,latin1
-
-scriptencoding cp932
-
-"ファイルフォーマット
-set fileformats=dos,mac,unix
-
-"---------------OS依存---------------"
-"ランタイムパス
-"環境変数を設定してください
-set runtimepath+=~/.
-" set runtimepath+=$HOME
-" set runtimepath+=$HOME/../settings
-set runtimepath+=$VIM
-set runtimepath+=$VIM/../settings
-
-"------------------------------------"
-
-"viminfo の保存先
-"vim と Gvim の info は分けておくべき？
-set viminfo='50,\"1000,:0,n$VIM/../_temp/viminfo/_viminfo
-
 "タイトルバーを非表示
 "set notitle
 
