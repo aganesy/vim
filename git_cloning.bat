@@ -3,6 +3,6 @@
 cd /d %~dp0
 
 mkdir bundle
-git clone git://github.com/Shougo/neobundle.vim bundle/neobundle.vim
+git clone https://github.com/Shougo/neobundle.vim bundle/neobundle.vim
 exit
 
