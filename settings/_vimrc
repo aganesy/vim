@@ -47,6 +47,7 @@ set directory=$VIM/../_temp/swap
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set expandtab
 "オートインデント
 set autoindent
 "高度なインデント
